@@ -21,6 +21,7 @@ class MySalesForce(QWidget):
         self.case_count = 0
         self.dont_push = 0
         self.username = getpass.getuser()
+        self.download_pathname = os.path.expanduser("~")
         self.init_Ui()
         self.set_events()
         self.load_api_secret()
@@ -324,10 +325,12 @@ class MySalesForce(QWidget):
         except:
             self.re_login()
 
-        file_loc = QFileDialog.getSaveFileName(None, "Save File", attach_name, "All files (*.*)")[0]
+        path = self.download_pathname.replace("\\", "/")
+        file_loc = QFileDialog.getSaveFileName(None, "Save File", path + "/" + attach_name, "All files (*.*)")[0]
         file_w_thread = threading.Thread(target=self.download,
                                          args=(file_loc, attach_name, attach_id, attach_body, attach_length, current_row_number))
         file_w_thread.start()
+        self.download_pathname = os.path.dirname(file_loc)
 
     @pyqtSlot()
     def sf_refresh_case(self, sf=None):
