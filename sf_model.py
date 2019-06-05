@@ -9,7 +9,7 @@ from simple_salesforce import Salesforce
 
 class SalesForceModel:
     def __init__(self):
-        print("Instantiated SalesForceModel Object")
+        # print("Instantiated SalesForceModel Object")
         self.config_file = os.path.join(os.path.dirname(__file__), "config.json")
         self.sf : Salesforce()
         self.user_id = ""
