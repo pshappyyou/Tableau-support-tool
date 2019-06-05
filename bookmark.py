@@ -3,6 +3,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
 class BookMark(QWidget):
+    # Test
     okta = 'https://tableau.okta.com/app/UserHome?fromLogin=true'
     max_act = 'https://alpo/#/views/FNOLicenseInformation_0/FNOLicenseInfo-DesktopMaxActivation?:iid=1'
     site_pick = 'https://alpo/#/views/SiteLookup/SitePicker'
