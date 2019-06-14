@@ -11,6 +11,7 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile, QWebEngi
 class Dashboard(QWidget):
 
     okta =          'https://tableau.okta.com/app/UserHome?fromLogin=true'
+    okta2 =         'https://tableau.okta.com/app/UserHome'
     max_act =       'https://alpo/#/views/FNOLicenseInformation_0/FNOLicenseInfo-DesktopMaxActivation?:iid=1'
     site_pick =     'https://alpo/#/views/SiteLookup/SitePicker'
     site_pick_emb = 'https://alpo/views/SiteLookup/SitePicker?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
@@ -40,6 +41,7 @@ class Dashboard(QWidget):
         self.tabs.acceptDrops()
 
         # Create tabs
+        self.add_web_tab(self.tabs, "OKTA", self.okta2)
         self.add_web_tab(self.tabs, "Only Me",self.onlyme_emb)
         self.add_web_tab(self.tabs, "Site Picker", self.site_pick_emb)
         self.add_web_tab(self.tabs, "Case Q", self.case_q_emb)
