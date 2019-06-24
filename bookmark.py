@@ -32,6 +32,10 @@ class BookMark(QWidget):
         self.show()
 
     def init_Ui(self):
+        self.vlay = QVBoxLayout() # Top Level
+
+        # First Groupbox
+        self.gbox_okta = QGroupBox("Okta")
         self.glay = QGridLayout()
         # Creating Widgets
         self.btn_okta = QPushButton("OKTA")
@@ -49,8 +53,29 @@ class BookMark(QWidget):
         self.glay.addWidget(self.btn_fno, 3, 1)
         self.glay.addWidget(self.btn_aws, 3, 2)
 
+        self.gbox_okta.setLayout(self.glay)
+
+        # Second GroupBox
+        self.gbox_server = QGroupBox("Tableau Test Server Env")
+        self.glay_server = QGridLayout()
+        self.gbox_server.setLayout(self.glay_server)
+
+        self.cbox_apac = QComboBox()
+        self.cbox_apac.addItems(("APAC", "APAC102", "APAC103","APAC104", "APAC105", "APAC2018-1","APAC2018-2","APAC2018-3"))
+        self.btn_apac_go = QPushButton("Go")
+        self.cbox_syd = QComboBox()
+        self.cbox_syd.addItems(("Sydney", "Sydney102", "Sydney103", "Sydney104", "Sydney105", "Sydney2018-1","Sydney2018-2","Sydney2018-3","Sydney2019-1"))
+        self.btn_syd_go = QPushButton("Go")
+
+        self.glay_server.addWidget(self.cbox_apac, 0,0)
+        self.glay_server.addWidget(self.btn_apac_go, 0, 1)
+        self.glay_server.addWidget(self.cbox_syd, 1, 0)
+        self.glay_server.addWidget(self.btn_syd_go, 1, 1)
+
         # Set Layout to the main widget
-        self.setLayout(self.glay)
+        self.vlay.addWidget(self.gbox_okta)
+        self.vlay.addWidget(self.gbox_server)
+        self.setLayout(self.vlay)
 
     def setup_events(self):
         self.btn_okta.clicked.connect(lambda : self.open_link(self.okta))
@@ -59,9 +84,17 @@ class BookMark(QWidget):
         self.btn_chameleon.clicked.connect(lambda: self.open_link(self.chameleon))
         self.btn_fno.clicked.connect(lambda: self.open_link(self.FNO))
         self.btn_aws.clicked.connect(lambda: self.open_link(self.AWS_SSO))
+        self.btn_apac_go.clicked.connect(lambda :self.open_server_link(self.cbox_apac.currentText()))
+        self.btn_syd_go.clicked.connect(lambda : self.open_server_link(self.cbox_syd.currentText()))
 
     def open_link(self, link):
         print(link)
         url = QUrl(link)
         if not QDesktopServices.openUrl(url):
             QMessageBox.warning(self, 'Open Url', 'Could not open url')
+
+    def open_server_link(self, param):
+        url = QUrl("https://"+param+".tsi.lan")
+        if not QDesktopServices.openUrl(url):
+            QMessageBox.warning(self, 'Open Url', 'Could not open url')
+
