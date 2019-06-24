@@ -30,6 +30,7 @@ class Dashboard(QWidget):
     aws =           "https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Instances:search=jack-test;sort=tag:Name"
     aws =           "https://tableau.okta.com/app/amazon_aws/exk99s5jvkwcMJttP356/sso/saml"
     # aws =           "https://signin.aws.amazon.com/saml"
+    coveo =         "https://tableau--c.na61.visual.force.com/apex/SupportFullSearch#t=Core&sort=relevancy"
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
@@ -58,6 +59,7 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "Database", self.db)
         self.add_web_tab(self.tabs, "Slack", self.slack)
         self.add_web_tab(self.tabs, "AWS", self.aws)
+        self.add_web_tab(self.tabs, "Coveo", self.coveo)
 
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
