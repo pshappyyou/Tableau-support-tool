@@ -24,6 +24,7 @@ class BookMark(QWidget):
     DINGO = 'https://dingo.tsi.lan/'
     CHAMELEON = 'https://chameleon.tsi.lan/'
     OT = 'https://app.smartsheet.com/b/form/c92f94a13dad4b849247e41402093dc1?SFConfirm=DrKDXCwjVKLIUI2T8dHZ3Set9--aN9o2'
+    OT2 ='https://app.smartsheet.com/b/form/c92f94a13dad4b849247e41402093dc1'
 
     def __init__(self, parent):
         super(BookMark, self).__init__(parent)
@@ -32,7 +33,8 @@ class BookMark(QWidget):
         self.show()
 
     def init_Ui(self):
-        self.vlay = QVBoxLayout() # Top Level
+        self.vlay = QGridLayout() # Top Level
+
 
         # First Groupbox
         self.gbox_okta = QGroupBox("Okta")
@@ -72,9 +74,16 @@ class BookMark(QWidget):
         self.glay_server.addWidget(self.cbox_syd, 1, 0)
         self.glay_server.addWidget(self.btn_syd_go, 1, 1)
 
+        self.gbox_admin = QGroupBox("Admin")
+        self.glay_admin = QGridLayout()
+        self.gbox_admin.setLayout(self.glay_admin)
+        self.btn_ot = QPushButton("OT")
+        self.glay_admin.addWidget(self.btn_ot, 0,0)
+
         # Set Layout to the main widget
-        self.vlay.addWidget(self.gbox_okta)
-        self.vlay.addWidget(self.gbox_server)
+        self.vlay.addWidget(self.gbox_okta, 0,0)
+        self.vlay.addWidget(self.gbox_server, 0,1)
+        self.vlay.addWidget(self.gbox_admin, 1, 0)
         self.setLayout(self.vlay)
 
     def setup_events(self):
@@ -86,6 +95,7 @@ class BookMark(QWidget):
         self.btn_aws.clicked.connect(lambda: self.open_link(self.AWS_SSO))
         self.btn_apac_go.clicked.connect(lambda :self.open_server_link(self.cbox_apac.currentText()))
         self.btn_syd_go.clicked.connect(lambda : self.open_server_link(self.cbox_syd.currentText()))
+        self.btn_ot.clicked.connect(lambda : self.open_link(self.OT))
 
     def open_link(self, link):
         print(link)

@@ -29,6 +29,7 @@ class Dashboard(QWidget):
     slack =         "https://tableau.slack.com/messages"
     aws =           "https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Instances:search=jack-test;sort=tag:Name"
     aws =           "https://tableau.okta.com/app/amazon_aws/exk99s5jvkwcMJttP356/sso/saml"
+    aws =           "https://tableau.okta.com/app/amazon_aws/"
     # aws =           "https://signin.aws.amazon.com/saml"
     coveo =         "https://tableau--c.na61.visual.force.com/apex/SupportFullSearch#t=Core&sort=relevancy"
 
