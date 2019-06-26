@@ -29,8 +29,10 @@ class PlanOfAction(QWidget):
         # Top Button part Components
         self.btn_clip = QPushButton("Copy to Clipboard")
         self.btn_copy = QPushButton("Copy to POA")
+        self.btn_clear = QPushButton("Clear All")
         self.hlay_btn.addWidget(self.btn_clip)
         self.hlay_btn.addWidget(self.btn_copy)
+        self.hlay_btn.addWidget(self.btn_clear)
         # Top two layout into one vlay
         self.vlay_top.addLayout(self.glay_top)
         self.vlay_top.addLayout(self.hlay_btn)
@@ -127,6 +129,7 @@ class PlanOfAction(QWidget):
     def set_events(self):
         self.btn_clip.clicked.connect(lambda: self.copy_to_clipboard("btn_clip"))
         self.btn_copy.clicked.connect(self.copy_to_poa)
+        self.btn_clear.clicked.connect(self.clear_all)
         self.btn_poa_contact.clicked.connect(lambda: self.copy_to_clipboard("btn_poa_contact"))
         self.btn_poa_next.clicked.connect(lambda: self.copy_to_clipboard("btn_poa_next"))
         self.btn_poa_status.clicked.connect(lambda: self.copy_to_clipboard("btn_poa_status"))
@@ -179,3 +182,13 @@ class PlanOfAction(QWidget):
                 "NEXT STEPS: {next}\n\n" \
                 "NEXT CUSTOMER CONTACT: {contact}".format(passto=passto, issue=issue, reason=reason, steps=steps, next=next, contact=contact)
         return text
+
+    def clear_all(self):
+        self.tbox_reason.clear()
+        self.tbox_issue.clear()
+        self.tbox_steps.clear()
+        self.tbox_next.clear()
+        self.tbox_contact.clear()
+        self.tbox_poa_status.clear()
+        self.tbox_poa_next.clear()
+        self.tbox_poa_contact.clear()
