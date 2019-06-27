@@ -271,6 +271,9 @@ class MySalesForce(QWidget):
             self.tb_case.insertRow(currentRowCount)
             self.tb_case.setSpan(currentRowCount, 0, 1, 5)
             self.tb_case.setItem(currentRowCount, 0, QTableWidgetItem(case_title))
+            self.tb_case.item(currentRowCount, 0).setBackground(Qt.red)
+            self.tb_case.item(currentRowCount, 0).setForeground(Qt.white)
+            # self.tb_case.item(currentRowCount, 0).setFont(QFont.bold)
             self.case_count += 1
 
             self.display_attachment_on_table(case_id, self.tb_case)
