@@ -17,7 +17,7 @@ class MySalesForce(QWidget):
         super(MySalesForce, self).__init__(parent)
         self.parent = parent
         self.model = sf_model.SalesForceModel()
-        self.api_link = r'<a href="https://tableau.my.salesforce.com/_ui/system/security/ResetApiTokenEdit?retURL=%2Fui%2Fsetup%2FSetup%3Fsetupid%3DPersonalInfo&setupid=ResetApiToken">'
+        self.api_link = r'https://tableau.my.salesforce.com/_ui/system/security/ResetApiTokenEdit?retURL=%2Fui%2Fsetup%2FSetup%3Fsetupid%3DPersonalInfo&setupid=ResetApiToken'
         self.case_count = 0
         self.dont_push = 0
         self.username = getpass.getuser()
@@ -40,8 +40,8 @@ class MySalesForce(QWidget):
         self.le_api = QLineEdit()
         self.btn_save_key = QPushButton("Save API Key")
         self.lb_api_link = QLabel("How to get API Key(Token)")
-        self.lb_api_link.setOpenExternalLinks(True)
         self.lb_api_link.setText("<a href='"+self.api_link+"'>How to get API Key</a>")
+        self.lb_api_link.setOpenExternalLinks(True)
         
         self.lb_pwd = QLabel("Password*")
         self.le_pwd = QLineEdit()

@@ -224,3 +224,23 @@ class SalesForceModel:
             subprocess.Popen(open_ex_file)
         except Exception as e:
             print(str(e))
+
+    def create_folder(self, path):
+        print(path)
+        try:
+            os.makedirs(path)
+        except OSError as e:
+            # print(e)
+            # e.errno
+            # print(e.errno)
+            # print(e.winerror)
+            # print(e.strerror)
+            if e.winerror == 183:
+                return "folder_alreay_exist"
+                # messagebox.showwarning("Folder Creation Error", "The folder already exist:  %s" % path)
+            else:
+                return str(e)
+                # messagebox.showerror("Folder Creation Error", "Reason: %s" % e.strerror)
+        else:
+            return "folder_created"
+            # messagebox.showinfo("Folder Creation Info", "Successfully created the directory %s " % path)
