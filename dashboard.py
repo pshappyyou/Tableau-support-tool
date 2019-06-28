@@ -57,8 +57,8 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "Database List", self.db)
         self.add_web_tab(self.tabs, "Sydney Lab", self.xen_lab)
         # self.add_web_tab(self.tabs, "OnlineHelp", self.ohelp)
-        self.add_web_tab(self.tabs, "Coveo", self.coveo)
-        self.add_web_tab(self.tabs, "Slack", self.slack)
+        # self.add_web_tab(self.tabs, "Coveo", self.coveo)
+        # self.add_web_tab(self.tabs, "Slack", self.slack)
         self.add_web_tab(self.tabs, "YouTube", self.mytube)
         # self.add_web_tab(self.tabs, "AWS", self.aws)
 
