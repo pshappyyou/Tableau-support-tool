@@ -48,19 +48,20 @@ class Dashboard(QWidget):
         self.tabs.acceptDrops()
 
         # Create tabs
-        self.add_web_tab(self.tabs, "OKTA", self.okta2)
-        self.add_web_tab(self.tabs, "Only Me",self.onlyme_emb)
-        self.add_web_tab(self.tabs, "Site Picker", self.site_pick_emb)
+        # self.add_web_tab(self.tabs, "OKTA", self.okta2)
         self.add_web_tab(self.tabs, "Case Q", self.case_q_emb)
+        self.add_web_tab(self.tabs, "Milestone", self.steve)
+        self.add_web_tab(self.tabs, "KPI", self.onlyme_emb)
         # self.add_web_tab(self.tabs, "Cat", self.cat)
-        self.add_web_tab(self.tabs, "Steve", self.steve)
-        self.add_web_tab(self.tabs, "Xen", self.xen_lab)
-        self.add_web_tab(self.tabs, "OnlineHelp", self.ohelp)
-        self.add_web_tab(self.tabs, "MyTube", self.mytube)
-        self.add_web_tab(self.tabs, "Database", self.db)
-        self.add_web_tab(self.tabs, "Slack", self.slack)
-        self.add_web_tab(self.tabs, "AWS", self.aws)
+        self.add_web_tab(self.tabs, "Site Picker", self.site_pick_emb)
+        self.add_web_tab(self.tabs, "Database List", self.db)
+        self.add_web_tab(self.tabs, "Sydney Lab", self.xen_lab)
+        # self.add_web_tab(self.tabs, "OnlineHelp", self.ohelp)
         self.add_web_tab(self.tabs, "Coveo", self.coveo)
+        self.add_web_tab(self.tabs, "Slack", self.slack)
+        self.add_web_tab(self.tabs, "YouTube", self.mytube)
+        # self.add_web_tab(self.tabs, "AWS", self.aws)
+
 
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
