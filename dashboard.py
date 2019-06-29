@@ -32,6 +32,8 @@ class Dashboard(QWidget):
     aws =           "https://tableau.okta.com/app/amazon_aws/"
     # aws =           "https://signin.aws.amazon.com/saml"
     coveo =         "https://tableau--c.na61.visual.force.com/apex/SupportFullSearch#t=Core&sort=relevancy"
+    FNO =           'https://tableau--c.na61.visual.force.com/apex/FNOBrowser'
+    my_survey =     'https://alpo/#/views/MySupportCaseClosedSurveyssatis/MySurveys?:iid=1'
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
@@ -52,9 +54,12 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "Case Q", self.case_q_emb)
         self.add_web_tab(self.tabs, "Milestone", self.steve)
         self.add_web_tab(self.tabs, "KPI", self.onlyme_emb)
+        self.add_web_tab(self.tabs, "My Survey", self.my_survey)
         # self.add_web_tab(self.tabs, "Cat", self.cat)
         self.add_web_tab(self.tabs, "Site Picker", self.site_pick_emb)
         self.add_web_tab(self.tabs, "Database List", self.db)
+        self.add_web_tab(self.tabs, "FNO Info", self.max_act)
+        self.add_web_tab(self.tabs, "FNO Browser", self.FNO)
         self.add_web_tab(self.tabs, "Sydney Lab", self.xen_lab)
         # self.add_web_tab(self.tabs, "OnlineHelp", self.ohelp)
         # self.add_web_tab(self.tabs, "Coveo", self.coveo)
