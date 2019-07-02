@@ -1,15 +1,10 @@
-import os
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-
-# import PyQt5.QtWebEngineWidgets
-# from PyQt5.QtWebEngineWidgets import QWebEnginePage
 from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile, QWebEnginePage
 
 
 class Dashboard(QWidget):
-
     okta =          'https://tableau.okta.com/app/UserHome?fromLogin=true'
     okta2 =         'https://tableau.okta.com/app/UserHome'
     max_act =       'https://alpo/#/views/FNOLicenseInformation_0/FNOLicenseInfo-DesktopMaxActivation?:iid=1'
@@ -27,10 +22,10 @@ class Dashboard(QWidget):
     ohelp =         'https://www.tableau.com/support/help'
     db =            "https://alpo/views/DevTestingDatabaseInfoandStatus_0/ConnectionInformation?:embed=y&:jsdebug=y&:display_count=no&:showVizHome=no&:origin=viz_share_link"
     slack =         "https://tableau.slack.com/messages"
+    aws =           "https://signin.aws.amazon.com/saml"
     aws =           "https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Instances:search=jack-test;sort=tag:Name"
     aws =           "https://tableau.okta.com/app/amazon_aws/exk99s5jvkwcMJttP356/sso/saml"
     aws =           "https://tableau.okta.com/app/amazon_aws/"
-    # aws =           "https://signin.aws.amazon.com/saml"
     coveo =         "https://tableau--c.na61.visual.force.com/apex/SupportFullSearch#t=Core&sort=relevancy"
     FNO =           'https://tableau--c.na61.visual.force.com/apex/FNOBrowser'
     my_survey =     'https://alpo/#/views/MySupportCaseClosedSurveyssatis/MySurveys?:iid=1'
@@ -42,31 +37,30 @@ class Dashboard(QWidget):
         self.show()
 
     def init_Ui(self):
-        self.layout = QVBoxLayout()
         # Initialize tab screen
+        self.layout = QVBoxLayout()
         self.tabs = QTabWidget()
-        self.tabs.setTabsClosable(True)
+        # self.tabs.setTabsClosable(True)
         self.tabs.tabCloseRequested.connect(self.remove_web_tab)
         self.tabs.acceptDrops()
 
         # Create tabs
-        # self.add_web_tab(self.tabs, "OKTA", self.okta2)
         self.add_web_tab(self.tabs, "Case Q", self.case_q_emb)
         self.add_web_tab(self.tabs, "Milestone", self.steve)
         self.add_web_tab(self.tabs, "KPI", self.onlyme_emb)
         self.add_web_tab(self.tabs, "My Survey", self.my_survey)
-        # self.add_web_tab(self.tabs, "Cat", self.cat)
         self.add_web_tab(self.tabs, "Site Picker", self.site_pick_emb)
         self.add_web_tab(self.tabs, "Database List", self.db)
         self.add_web_tab(self.tabs, "FNO Info", self.max_act)
         self.add_web_tab(self.tabs, "FNO Browser", self.FNO)
         self.add_web_tab(self.tabs, "Sydney Lab", self.xen_lab)
+        self.add_web_tab(self.tabs, "YouTube", self.mytube)
+        # self.add_web_tab(self.tabs, "AWS", self.aws)
+        # self.add_web_tab(self.tabs, "OKTA", self.okta2)
+        # self.add_web_tab(self.tabs, "Cat", self.cat)
         # self.add_web_tab(self.tabs, "OnlineHelp", self.ohelp)
         # self.add_web_tab(self.tabs, "Coveo", self.coveo)
         # self.add_web_tab(self.tabs, "Slack", self.slack)
-        self.add_web_tab(self.tabs, "YouTube", self.mytube)
-        # self.add_web_tab(self.tabs, "AWS", self.aws)
-
 
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
@@ -83,5 +77,4 @@ class Dashboard(QWidget):
         new_tab.setLayout(new_tab.layout)
 
     def remove_web_tab(self, index):
-        print(index)
         self.tabs.removeTab(index)
