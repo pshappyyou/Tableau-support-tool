@@ -125,7 +125,7 @@ class SalesForceModel:
     def get_current_case_list(self, sf=None):
         userid = self.get_user_id()
         query = "SELECT Id, CaseNumber, OwnerId, Status, Subject FROM Case WHERE OwnerId = '" + \
-                userid + "' AND (Status = 'Active' OR Status='New' OR Status='Re-opened')"
+                userid + "' AND (Status = 'Active' OR Status='New' OR Status='Re-opened' OR Status='On Hold')"
         if sf != None:
             list = sf.query(query)
         else:
