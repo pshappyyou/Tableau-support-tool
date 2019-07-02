@@ -5,22 +5,27 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
-import canned_model2
+import canned_model
 
 class CannedComment(QWidget):
 
     def __init__(self, parent):
         super(CannedComment, self).__init__(parent)
         self.parent = parent
-        self.dic = canned_model2.canned_dic
+        self.dic = canned_model.canned_dic
         self.init_Ui()
 
     def init_Ui(self):
         self.layout = QVBoxLayout()
         self.tabs = QTabWidget()
 
+        # font
+        font = QFont()
+        font.setPointSize(14)
+
         for language in self.dic:
             sub_tabs = QTabWidget()
+            # Nested Tabs
             sub_tabs.setTabBar(MyTabBar(width=100, height=25))
             sub_tabs.setTabPosition(QTabWidget.West)
             # First Level Tabs
@@ -32,6 +37,7 @@ class CannedComment(QWidget):
                 sub_tab_layout = QVBoxLayout()
                 btn_copy = QPushButton('Copy')
                 txt_edit = QTextEdit()
+                txt_edit.setFont(font)
                 txt_edit.insertPlainText(text)
                 # txt_edit.insertHtml(text)
                 sub_tab_layout.addWidget(btn_copy)
