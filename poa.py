@@ -176,8 +176,8 @@ class PlanOfAction(QWidget):
         next = self.tbox_next.toPlainText()
         passto = self.cbox_passto.currentText()
         text = "PASS TO: {passto}\n\n" \
-                "ISSUE: {issue}\n\n" \
-                "REASON: {reason}\n\n" \
+               "REASON: {reason}\n\n" \
+               "ISSUE: {issue}\n\n" \
                 "STEPS TRIED: {steps}\n\n" \
                 "NEXT STEPS: {next}\n\n" \
                 "NEXT CUSTOMER CONTACT: {contact}".format(passto=passto, issue=issue, reason=reason, steps=steps, next=next, contact=contact)

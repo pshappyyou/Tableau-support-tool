@@ -5,6 +5,7 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile, QWebEngi
 
 
 class Dashboard(QWidget):
+    perform =       'https://alpo/#/views/APACTechSupportIndividualPerformance/IndividualPerformance?:iid=1'
     okta =          'https://tableau.okta.com/app/UserHome?fromLogin=true'
     okta2 =         'https://tableau.okta.com/app/UserHome'
     max_act =       'https://alpo/#/views/FNOLicenseInformation_0/FNOLicenseInfo-DesktopMaxActivation?:iid=1'
@@ -29,6 +30,7 @@ class Dashboard(QWidget):
     coveo =         "https://tableau--c.na61.visual.force.com/apex/SupportFullSearch#t=Core&sort=relevancy"
     FNO =           'https://tableau--c.na61.visual.force.com/apex/FNOBrowser'
     my_survey =     'https://alpo/#/views/MySupportCaseClosedSurveyssatis/MySurveys?:iid=1'
+    test =          '<h1>Hello World</h1>'
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
@@ -54,15 +56,16 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "FNO Info", self.max_act)
         self.add_web_tab(self.tabs, "FNO Browser", self.FNO)
         self.add_web_tab(self.tabs, "Sydney Lab", self.xen_lab)
-        self.add_web_tab(self.tabs, "YouTube", self.mytube)
-        # self.add_web_tab(self.tabs, "AWS", self.aws)
-        # self.add_web_tab(self.tabs, "OKTA", self.okta2)
-        # self.add_web_tab(self.tabs, "Cat", self.cat)
-        # self.add_web_tab(self.tabs, "OnlineHelp", self.ohelp)
-        # self.add_web_tab(self.tabs, "Coveo", self.coveo)
-        # self.add_web_tab(self.tabs, "Slack", self.slack)
-
-        # Add tabs to widget
+        #         self.add_web_tab(self.tabs, "YouTube", self.mytube)
+        #         self.add_web_tab(self.tabs, "Perform", self.perform)
+        #         # self.add_web_tab(self.tabs, "AWS", self.aws)
+        #         # self.add_web_tab(self.tabs, "OKTA", self.okta2)
+        #         # self.add_web_tab(self.tabs, "Cat", self.cat)
+        #         # self.add_web_tab(self.tabs, "OnlineHelp", self.ohelp)
+        #         # self.add_web_tab(self.tabs, "Coveo", self.coveo)
+        #         # self.add_web_tab(self.tabs, "Slack", self.slack)
+        #
+        #         # Add tabs to widget
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
 

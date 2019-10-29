@@ -66,7 +66,7 @@ class BookMark(QWidget):
         self.gbox_server.setLayout(self.glay_server)
 
         self.cbox_apac = QComboBox()
-        self.cbox_apac.addItems(("APAC", "APAC102", "APAC103","APAC104", "APAC105", "APAC2018-1","APAC2018-2","APAC2018-3"))
+        self.cbox_apac.addItems(("APAC", "APAC102", "APAC103","APAC104", "APAC105", "APAC2018-1","APAC2018-2","APAC2018-3", "APAC2019-1","APAC2019-2"))
         self.btn_apac_go = QPushButton("Go")
         self.cbox_syd = QComboBox()
         self.cbox_syd.addItems(("Sydney", "Sydney102", "Sydney103", "Sydney104", "Sydney105", "Sydney2018-1","Sydney2018-2","Sydney2018-3","Sydney2019-1"))
