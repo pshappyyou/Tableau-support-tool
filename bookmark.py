@@ -51,6 +51,8 @@ class BookMark(QWidget):
         self.btn_logshark = QPushButton("Logshark")
         # self.btn_fno = QPushButton("FNO")
         self.btn_aws = QPushButton("AWS")
+        self.btn_aws.setMinimumSize(QSize(50, 50))
+        # self.btn_aws.resize(50, 50)
         # Adding Widgets to Layout
         self.glay.addWidget(self.btn_okta, 0,0)
         # self.glay.addWidget(self.btn_maxact,0,1)

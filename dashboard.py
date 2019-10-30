@@ -11,8 +11,9 @@ class Dashboard(QWidget):
     max_act =       'https://alpo/#/views/FNOLicenseInformation_0/FNOLicenseInfo-DesktopMaxActivation?:iid=1'
     site_pick =     'https://alpo/#/views/SiteLookup/SitePicker'
     site_pick_emb = 'https://alpo/views/SiteLookup/SitePicker?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
-    onlyme =        'https://alpo/#/views/APACWeightedAdjustedMetrics/OnlyMe?:iid=1'
+    matrix =        'https://alpo/#/views/APACWeightedAdjustedMetrics/MetricHeatmap'
     onlyme_emb =    'https://alpo/views/APACWeightedAdjustedMetrics/OnlyMe?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
+    case_q =        'https://alpo/#/views/Tier1TechDash/Tier1TechQueue'
     case_q_emb =    'https://alpo/views/SupportCaseQueue/Tier1TechQueue?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
     mytube =        'https://www.youtube.com/'
     dash =          'https://alpo/#/views/Tier1TechDash/Tier1TechQueue'
@@ -31,6 +32,13 @@ class Dashboard(QWidget):
     FNO =           'https://tableau--c.na61.visual.force.com/apex/FNOBrowser'
     my_survey =     'https://alpo/#/views/MySupportCaseClosedSurveyssatis/MySurveys?:iid=1'
     test =          '<h1>Hello World</h1>'
+    apac_q =        'https://alpo/#/views/APACQueueStatus/APACQueueStatus'
+    apac_q =        'https://alpo/views/APACQueueStatus/APACQueueStatus?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link'
+    call =          'https://alpo/#/views/CaseswithoutCalls/CaseswithoutCalls'
+    sop =           'https://alpo/#/views/SOPUsage/UsagebyTechnician'
+    out_of_q =      'https://alpo/#/views/APACTechSupportAvailabilityCalendar/APACTSOutofQueueV2'
+    pto_lookup =    'https://alpo/#/views/APACTechSupportAvailabilityCalendar/APACTSPTOCalendarLookUp'
+    dingo =         'https://dingo.tsi.lan/workgroup/#'
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
@@ -47,20 +55,31 @@ class Dashboard(QWidget):
         self.tabs.acceptDrops()
 
         # Create tabs
-        self.add_web_tab(self.tabs, "Case Q", self.case_q_emb)
+        # Que Management
+        self.add_web_tab(self.tabs, "APAC Q", self.apac_q)
+        self.add_web_tab(self.tabs, "Case Q", self.case_q)
         self.add_web_tab(self.tabs, "Milestone", self.steve)
-        self.add_web_tab(self.tabs, "KPI", self.onlyme_emb)
+        # self.add_web_tab(self.tabs, "Cat", self.cat)
+        # Individual KPI Management
+        self.add_web_tab(self.tabs, "KPI", self.matrix)
+        self.add_web_tab(self.tabs, "Perform", self.perform)
         self.add_web_tab(self.tabs, "My Survey", self.my_survey)
+        self.add_web_tab(self.tabs, "Call Att", self.call)
+        self.add_web_tab(self.tabs, "SOP", self.sop)
+        # Utilities
         self.add_web_tab(self.tabs, "Site Picker", self.site_pick_emb)
         self.add_web_tab(self.tabs, "Database List", self.db)
         self.add_web_tab(self.tabs, "FNO Info", self.max_act)
         self.add_web_tab(self.tabs, "FNO Browser", self.FNO)
         self.add_web_tab(self.tabs, "Sydney Lab", self.xen_lab)
+        self.add_web_tab(self.tabs, "Dingo", self.dingo)
+        # Admin
+        self.add_web_tab(self.tabs, "Out Q", self.out_of_q)
+        self.add_web_tab(self.tabs, "PTO Lookup", self.pto_lookup)
         #         self.add_web_tab(self.tabs, "YouTube", self.mytube)
-        #         self.add_web_tab(self.tabs, "Perform", self.perform)
         #         # self.add_web_tab(self.tabs, "AWS", self.aws)
         #         # self.add_web_tab(self.tabs, "OKTA", self.okta2)
-        #         # self.add_web_tab(self.tabs, "Cat", self.cat)
+
         #         # self.add_web_tab(self.tabs, "OnlineHelp", self.ohelp)
         #         # self.add_web_tab(self.tabs, "Coveo", self.coveo)
         #         # self.add_web_tab(self.tabs, "Slack", self.slack)
