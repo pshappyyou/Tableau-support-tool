@@ -119,12 +119,12 @@ class MainTabWidget(QWidget):
         self.tab_poa = poa.PlanOfAction(self.parent)
 
         # Add tabs
-        self.tabs.addTab(self.tab_sf, "SalesForce")
-        self.tabs.addTab(self.tab_tz,"Timezone")
-        self.tabs.addTab(self.tab_cc,"CannedComments")
         self.tabs.addTab(self.tab_db, "Dashboard")
+        self.tabs.addTab(self.tab_cc, "CannedComments")
         self.tabs.addTab(self.tab_bm, "Bookmarks")
+        self.tabs.addTab(self.tab_tz, "Timezone")
         self.tabs.addTab(self.tab_poa, "POA")
+        self.tabs.addTab(self.tab_sf, "SalesForce")
         
         self.notepad = QPlainTextEdit()
         self.notepad.setStyleSheet(StyleSheet)

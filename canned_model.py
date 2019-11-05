@@ -57,7 +57,45 @@ canned_dic = {
             "\t- The TSM log. The tsm.log file is located in <home dir>/.tableau/tsm .\n"
             "\t- The install log. The app-install.log file is located in /var/opt/tableau/tableau_server/logs .\n"
             "\t- Tableau Server Log file: /var/opt/tableau/tableau_server/data/tabsvc/logs/\n"),
-        "Fiddler Request" : (""),
+        "Security Questions": (
+            "Thank you for contacting Tableau Technical Support.\n"
+            "\n"
+            "I understand an audit of the security risks within Tableau Server was carried out and pointed out some vulnerabilities.\n"
+            "At Tableau Software, we take security vulnerabilities very seriously. I will engage my Security team in order to conduct a full investigation once I receive the following information:\n"
+            "\n"
+            "1 - Please provide all documentation and/or reports that support the vulnerability concerns. Screen shots and specifics are vital.\n"
+            "2 - Is Tableau Server configured for SSL?\n"
+            "3 - Was the test performed manual or automated? If automated, please include the name and version of the scanner used.\n"
+            "4 - Was a specific browser utilized for testing? If so, what browser and version were utilized.\n"
+            "5 - From the output from the tests, which risks are of the greatest concern currently for your organization? On which pages in the scan document are these issues located?\n"
+            "6 - Please provide Tableau Server log files from the time the scan was conducted.\n"
+            "\n"
+            "To send Tableau Server log files, please see the following links:\n"
+            "Creating Tableau Server log files\n"
+            "http://www.tableausoftware.com/support/knowledge-base/creating-tableau-server-log-files\n"
+            "\n"
+            "Alternative Method to Send Large Files\n"
+            "http://kb.tableausoftware.com/articles/knowledgebase/sending-large-files-alternative-method"
+        ),
+        "Fiddler": (
+            "1. Download and install Fiddler from https://www.telerik.com/download/fiddler (Fiddler is a tool that allows us to view the HTTP traffic passed between a browser and a webserver.)\n"
+            "2. Close all open Web Browsers\n"
+            "3. Click Start > Programs > Fiddler\n"
+            "4. Open a new Web Browser and reproduce the issue\n"
+            "5. In Fiddler Click File > Save > All Sessions\n"
+            "6. Enter a file name and save the .saz file to your desktop\n"
+            "7. Send the Fiddler .saz file as a reply to this email.\n"
+            "\n"
+            "NOTE: If Tableau Server uses SSL, there is one additional step required before continuing to step 4. Decrypt HTTPS traffic.\n"
+            "To do this go to: Tools > Options > HTTPS tab > Check 'Decrypt HTTPS traffic' > OK"
+        ),
+        "Msinfo32" : (
+            "System information result from running the 'msinfo32' command (instructions below):\n"
+            "\n"
+            "1. Open Start > Run and type 'msinfo32.exe' (without the quotes) in the 'Open' box.\n"
+            "2. A window labeled System Information will open. Click on 'File' and select 'Save...\n"
+            "3. Enter a save location, then collect the resulting .nfo file and attach it to your reply.\n"
+        ),
         "Note" : ""
         },
     "Korean" : {
@@ -87,8 +125,19 @@ canned_dic = {
             "\n\n"
             "Tableau의 귀중한 고객이 되어 주셔서 감사합니다."),
         "Close" : (''),
-        "Confirm Req" : (''),
-        "Feature Req" : (''),
+        "Confirm Request" : (''),
+        "Feature Request" : (''),
+        "피들러" : (
+            "1. https://www.telerik.com/download/fiddler 에서 fiddler 를 다운받아 설치 합니다.\n"
+            "2. 열린 모든 브라우저를 닫습니다.\n"
+            "3. Fiddler를 실행합니다.\n"
+            "4. 해당 웹 브라우저를 실행한 후 이슈를 재현합니다.\n"
+            "5. 브라우저에서 이슈 재현이 끝난 후 Fiddler에서 File > Save > All Sessions\n" 
+            "6. 저장할 파일 이름을 *.saz로 저장 한 후 해당 파일을 이메일 첨부파일로 보냅니다.\n"
+            "\n"
+            "참고: 만약, 테블로 서버가 SSL이 활성화되어 있는 경우에는 4번째 스텝 이전에 아래 Https에 관련된 옵션을 먼저 활성화 시켜주세요.\n" 
+            "Tools > Options > HTTPS tab > Check 'Decrypt HTTPS traffic' > OK\n"
+        ),
         "Request logs" : ('')
     },
     "Chinese" : {
