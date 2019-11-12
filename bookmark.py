@@ -28,6 +28,7 @@ class BookMark(QWidget):
     crash_shark = 'https://crashshark.tsi.lan/'
     log_shark = 'https://logshark.tsi.lan'
     splunk = 'https://splunk.tsi.lan'
+    onlinesupport = 'https://manage.online.tableau.com/support'
 
 
     def __init__(self, parent):
@@ -38,7 +39,6 @@ class BookMark(QWidget):
 
     def init_Ui(self):
         self.vlay = QGridLayout() # Top Level
-
 
         # First Groupbox
         self.gbox_okta = QGroupBox("Main")
@@ -53,13 +53,16 @@ class BookMark(QWidget):
         self.btn_aws = QPushButton("AWS")
         self.btn_aws.setMinimumSize(QSize(50, 50))
         # self.btn_aws.resize(50, 50)
+        self.btn_onlinesupport = QPushButton("Tableau Online Support Access")
+
         # Adding Widgets to Layout
         self.glay.addWidget(self.btn_okta, 0,0)
         # self.glay.addWidget(self.btn_maxact,0,1)
         # self.glay.addWidget(self.btn_sitepik, 0,2)
         self.glay.addWidget(self.btn_chameleon, 2, 0)
         # self.glay.addWidget(self.btn_fno, 2, 1)
-        self.glay.addWidget(self.btn_aws, 2, 2)
+        self.glay.addWidget(self.btn_aws, 2, 1)
+        self.glay.addWidget(self.btn_onlinesupport, 0, 1)
         self.gbox_okta.setLayout(self.glay)
 
         # Second GroupBox
@@ -101,6 +104,7 @@ class BookMark(QWidget):
         self.btn_apac_go.clicked.connect(lambda :self.open_server_link(self.cbox_apac.currentText()))
         self.btn_syd_go.clicked.connect(lambda : self.open_server_link(self.cbox_syd.currentText()))
         self.btn_ot.clicked.connect(lambda : self.open_link(self.OT))
+        self.btn_onlinesupport.clicked.connect(lambda: self.open_link(self.onlinesupport))
 
     def open_link(self, link):
         print(link)
