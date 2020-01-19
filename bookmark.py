@@ -16,6 +16,7 @@ class BookMark(QWidget):
     AWS_HOME = 'https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Home:'
     AWS_EC2 = 'https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2'
     AWS_SSO = 'https://tableau.okta.com/home/amazon_aws/0oa99s5jwv5qu9YUA356/272?fromHome=true'
+    # AWS_SSO = 'https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#Instances:sort=tag:Name'
     SALESFORCE = 'https://tableau.lightning.force.com/lightning/o/Case/list?filterName=00B0d00000787zVEAQ'
     DESKTOP_MAXACT = 'https://alpo/#/views/FNOLicenseInformation_0/FNOLicenseInfo-DesktopMaxActivation?:iid=1'
     OKTA = 'https://tableau.okta.com/app/UserHome'
@@ -29,7 +30,6 @@ class BookMark(QWidget):
     log_shark = 'https://logshark.tsi.lan'
     splunk = 'https://splunk.tsi.lan'
     onlinesupport = 'https://manage.online.tableau.com/support'
-
 
     def __init__(self, parent):
         super(BookMark, self).__init__(parent)
@@ -49,7 +49,7 @@ class BookMark(QWidget):
         # self.btn_sitepik = QPushButton("Site Picker")
         self.btn_chameleon = QPushButton("Chameleon")
         self.btn_logshark = QPushButton("Logshark")
-        # self.btn_fno = QPushButton("FNO")
+        self.btn_spk = QPushButton("Splunk")
         self.btn_aws = QPushButton("AWS")
         self.btn_aws.setMinimumSize(QSize(50, 50))
         # self.btn_aws.resize(50, 50)
@@ -57,12 +57,12 @@ class BookMark(QWidget):
 
         # Adding Widgets to Layout
         self.glay.addWidget(self.btn_okta, 0,0)
+        self.glay.addWidget(self.btn_onlinesupport, 0, 1)
         # self.glay.addWidget(self.btn_maxact,0,1)
         # self.glay.addWidget(self.btn_sitepik, 0,2)
         self.glay.addWidget(self.btn_chameleon, 2, 0)
-        # self.glay.addWidget(self.btn_fno, 2, 1)
         self.glay.addWidget(self.btn_aws, 2, 1)
-        self.glay.addWidget(self.btn_onlinesupport, 0, 1)
+        self.glay.addWidget(self.btn_spk, 3, 1)
         self.gbox_okta.setLayout(self.glay)
 
         # Second GroupBox
@@ -99,7 +99,7 @@ class BookMark(QWidget):
         # self.btn_maxact.clicked.connect(lambda: self.open_link(self.max_act))
         # self.btn_sitepik.clicked.connect(lambda: self.open_link(self.site_pick))
         self.btn_chameleon.clicked.connect(lambda: self.open_link(self.chameleon))
-        # self.btn_fno.clicked.connect(lambda: self.open_link(self.FNO))
+        self.btn_spk.clicked.connect(lambda: self.open_link(self.SPLUNK))
         self.btn_aws.clicked.connect(lambda: self.open_link(self.AWS_SSO))
         self.btn_apac_go.clicked.connect(lambda :self.open_server_link(self.cbox_apac.currentText()))
         self.btn_syd_go.clicked.connect(lambda : self.open_server_link(self.cbox_syd.currentText()))

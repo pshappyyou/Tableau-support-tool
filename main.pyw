@@ -13,6 +13,7 @@ import dashboard as db
 import model
 import bookmark as bm
 import poa
+import splunk
 
 
 StyleSheet = """
@@ -31,6 +32,7 @@ StyleSheet = """
     QTabBar::tab:selected, QTabBar::tab:hover {
         background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #fafafa, stop: 0.4 #f4f4f4, stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);}
     QTabBar::tab:selected {
+        font-size:22pt;
         border-color: #9B9B9B;
         border-bottom-color: #C2C7CB;}
     QTabBar::tab:!selected {
@@ -117,17 +119,21 @@ class MainTabWidget(QWidget):
         self.tab_db = db.Dashboard(self.parent)
         self.tab_bm = bm.BookMark(self.parent)
         self.tab_poa = poa.PlanOfAction(self.parent)
+        self.tab_splunk = splunk.Splunk(self.parent)
 
         # Add tabs
+        # self.tabs.setStyleSheet(StyleSheet)
         self.tabs.addTab(self.tab_db, "Dashboard")
-        self.tabs.addTab(self.tab_cc, "CannedComments")
         self.tabs.addTab(self.tab_bm, "Bookmarks")
+        self.tabs.addTab(self.tab_cc, "CannedComments")
         self.tabs.addTab(self.tab_tz, "Timezone")
         self.tabs.addTab(self.tab_poa, "POA")
         self.tabs.addTab(self.tab_sf, "SalesForce")
-        
+        self.tabs.addTab(self.tab_splunk, "Splunk Query Gen")
+
+        # Notepad tab
         self.notepad = QPlainTextEdit()
-        self.notepad.setStyleSheet(StyleSheet)
+        # self.notepad.setStyleSheet(StyleSheet)
         self.tabs.addTab(self.notepad, "Notepad")
 
         # Add tabs to widget

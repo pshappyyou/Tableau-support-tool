@@ -39,6 +39,11 @@ class Dashboard(QWidget):
     out_of_q =      'https://alpo/#/views/APACTechSupportAvailabilityCalendar/APACTSOutofQueueV2'
     pto_lookup =    'https://alpo/#/views/APACTechSupportAvailabilityCalendar/APACTSPTOCalendarLookUp'
     dingo =         'https://dingo.tsi.lan/workgroup/#'
+    case_age =      'https://alpo/#/views/APAC-CaseStatus/CaseAge'
+    age_xlsx =      'https://tableau.sharepoint.com/:x:/r/sites/APACTechSupport/_layouts/15/Doc.aspx?sourcedoc=%7BDAAA6273-507E-45D8-883A-2D76CF464C0E%7D&file=Old-Cases-Master.xlsx&action=default&mobileredirect=true'
+    logshark =      'https://logshark.tsi.lan/'
+    esxi =          'https://10.70.128.18'
+    plus7 =         'https://alpo/#/views/APAC-AgedCases/IndividualsAlerts'
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
@@ -57,6 +62,8 @@ class Dashboard(QWidget):
         # Create tabs
         # Que Management
         self.add_web_tab(self.tabs, "APAC Q", self.apac_q)
+        # self.add_web_tab(self.tabs, "Old Cases", self.age_xlsx)
+        self.add_web_tab(self.tabs, "Case Age", self.case_age)
         self.add_web_tab(self.tabs, "Case Q", self.case_q)
         self.add_web_tab(self.tabs, "Milestone", self.steve)
         # self.add_web_tab(self.tabs, "Cat", self.cat)
@@ -66,6 +73,7 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "My Survey", self.my_survey)
         self.add_web_tab(self.tabs, "Call Att", self.call)
         self.add_web_tab(self.tabs, "SOP", self.sop)
+        self.add_web_tab(self.tabs, "Plus7", self.plus7)
         # Utilities
         self.add_web_tab(self.tabs, "Site Picker", self.site_pick_emb)
         self.add_web_tab(self.tabs, "Database List", self.db)
@@ -73,18 +81,20 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "FNO Browser", self.FNO)
         self.add_web_tab(self.tabs, "Sydney Lab", self.xen_lab)
         self.add_web_tab(self.tabs, "Dingo", self.dingo)
+        self.add_web_tab(self.tabs, "Log Shark", self.logshark)
+        self.add_web_tab(self.tabs, "Esxi", self.esxi)
         # Admin
         self.add_web_tab(self.tabs, "Out Q", self.out_of_q)
         self.add_web_tab(self.tabs, "PTO Lookup", self.pto_lookup)
-        #         self.add_web_tab(self.tabs, "YouTube", self.mytube)
-        #         # self.add_web_tab(self.tabs, "AWS", self.aws)
-        #         # self.add_web_tab(self.tabs, "OKTA", self.okta2)
+        # ETC
+        #self.add_web_tab(self.tabs, "YouTube", self.mytube)
+        # self.add_web_tab(self.tabs, "AWS", self.aws)
+        # self.add_web_tab(self.tabs, "OKTA", self.okta2)
+        # self.add_web_tab(self.tabs, "OnlineHelp", self.ohelp)
+        # self.add_web_tab(self.tabs, "Coveo", self.coveo)
+        # self.add_web_tab(self.tabs, "Slack", self.slack)
 
-        #         # self.add_web_tab(self.tabs, "OnlineHelp", self.ohelp)
-        #         # self.add_web_tab(self.tabs, "Coveo", self.coveo)
-        #         # self.add_web_tab(self.tabs, "Slack", self.slack)
-        #
-        #         # Add tabs to widget
+        # Add tabs to widget
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
 

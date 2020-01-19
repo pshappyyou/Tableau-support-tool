@@ -96,6 +96,25 @@ canned_dic = {
             "2. A window labeled System Information will open. Click on 'File' and select 'Save...\n"
             "3. Enter a save location, then collect the resulting .nfo file and attach it to your reply.\n"
         ),
+        "Performance\nServer-Dashboard": (
+            "In order to provide the best possible troubleshooting, I would like to request some additional information about the case. Please respond to this email with the following information:\n"
+            "\n"
+            "1. First off, look at this article and follow all suggestions:\n"
+            "https://help.tableau.com/current/pro/desktop/en-us/performance_tips.htm\n"
+            "2. Are you connecting to Live Data, or Extracts?\n"
+            "3. If extracts, then are you using Hyper files?\n"
+            "4. Is performance slow on Tableau Desktop, or just on Tableau Server?\n"
+            "5. Is this happening only on one dashboard or multiple?\n"
+            "6. Can you provide current load time, (for instance 30 seconds to 1 minute)?\n"
+            "7. What is a reasonable expected load time that you wish to attain?\n"
+            "8. Please upload a Performance Recording and accompanying Tableau Server logs.\n"
+            "\n"
+            "How to create Performance Recording: https://help.tableau.com/current/server/en-us/perf_record_create_server.htm\n"
+            "How to create Tableau Server Log files: https://help.tableau.com/current/server/en-us/logs_archive.htm\n"
+            "How to upload large files: https://kb.tableau.com/articles/howto/alternative-method-for-sending-large-files\n"
+            "\n"
+            "This information will help with our investigation. I will keep this case in my queue and will be notified of your reply."
+        ),
         "Note" : ""
         },
     "Korean" : {
