@@ -364,7 +364,7 @@ class MySalesForce(QWidget):
 
         if api_key_action == "Renew API Key":
             self.le_api.setDisabled(False)
-            self.le_api.setText("")
+            # self.le_api.setText("")
             self.btn_save_key.setText("Save API Key")
         else: # "Save API Key"
             new_api_key = self.le_api.text()
