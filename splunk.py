@@ -32,39 +32,67 @@ class Splunk(QWidget):
 
         self.lb_srctype = QLabel("Source Type")
         self.cbox_srctype = QComboBox()
-        self.cbox_srctype.addItems(("tas:gateway:apache:access",""))
+        self.cbox_srctype.addItem("tas:gateway:apache:access")
 
-        self.lb_sitename = QLabel("Site Name or URL")
+        self.lb_sitename = QLabel("Site Name")
         self.tbox_sitename = QLineEdit()
+        self.lb_siteurl = QLabel("Site URL")
+        self.tbox_siteurl = QLineEdit()
         self.btn_submit = QPushButton("Generate")
+        self.btn_clear = QPushButton("Clear")
 
         self.lb_query = QLabel("Search Query")
         self.tbox_query = QPlainTextEdit()
         self.tbox_query.setMaximumHeight(50)
+
+        self.lb_wiki_link = QLabel()
+        self.lb_wiki_link.setText("<a href='https://mytableau.tableaucorp.com/display/cesupport/Splunk+Search+Queries'>Splunk Search Queries</a>")
+        self.lb_wiki_link.setOpenExternalLinks(True)
 
 
         self.glay.addWidget(self.lb_index, 0,0)
         self.glay.addWidget(self.cbox_index, 0, 1)
         self.glay.addWidget(self.lb_sitename, 1, 0)
         self.glay.addWidget(self.tbox_sitename, 1, 1)
-        self.glay.addWidget(self.lb_proc, 2, 0)
-        self.glay.addWidget(self.cbox_proc, 2, 1)
-        self.glay.addWidget(self.lb_srctype, 3, 0)
-        self.glay.addWidget(self.cbox_srctype, 3, 1)
-        self.glay.addWidget(self.btn_submit, 4, 0)
-        self.glay.addWidget(self.lb_query, 5, 0)
-        self.glay.addWidget(self.cbox_srctype, 6, 0)
+        self.glay.addWidget(self.lb_siteurl, 2, 0)
+        self.glay.addWidget(self.tbox_siteurl, 2, 1)
+        self.glay.addWidget(self.lb_proc, 3, 0)
+        self.glay.addWidget(self.cbox_proc, 3, 1)
+        self.glay.addWidget(self.lb_srctype, 4, 0)
+        self.glay.addWidget(self.cbox_srctype, 4, 1)
+        self.glay.addWidget(self.btn_submit, 5, 0)
+        self.glay.addWidget(self.btn_clear, 5, 1)
+        self.glay.addWidget(self.lb_query, 6, 0)
+        self.glay.addWidget(self.tbox_query, 6, 1)
+        self.glay.addWidget(self.lb_wiki_link, 7, 0)
+        # self.glay.addWidget(self.cbox_srctype, 3, 1)
 
 
         self.setLayout(self.glay)
 
     def set_events(self):
         self.cbox_proc.currentTextChanged.connect(self.set_src_type)
+        self.btn_submit.clicked.connect(self.show_query)
+        self.btn_clear.clicked.connect(self.clear_query)
         # self.btn_copy.clicked.connect(self.copy_to_poa)
         # self.btn_clear.clicked.connect(self.clear_all)
         # self.btn_poa_contact.clicked.connect(lambda: self.copy_to_clipboard("btn_poa_contact"))
         # self.btn_poa_next.clicked.connect(lambda: self.copy_to_clipboard("btn_poa_next"))
         # self.btn_poa_status.clicked.connect(lambda: self.copy_to_clipboard("btn_poa_status"))
+
+    def show_query(self):
+        if self.tbox_sitename.text() is not None or self.tbox_sitename.text() is not "":
+            site = '"sitename=' + self.tbox_sitename.text() + '"'
+        elif self.tbox_siteurl.text() is not None or self.tbox_siteurl.text() is not "":
+            site = '"' + self.tbox_siteurl + '"'
+
+        query = self.cbox_index.currentText() + " " + site + " " + self.cbox_srctype.currentText()
+
+        self.tbox_query.clear()
+        self.tbox_query.insertPlainText(query)
+
+    def clear_query(self):
+        self.tbox_query.clear()
 
     def set_src_type(self):
         proc = self.cbox_proc.currentText()
@@ -75,22 +103,17 @@ class Splunk(QWidget):
             self.cbox_srctype.addItems(("tas:backgrounder:log", "tas:backgrounder:cpp", "tas:backgrounder:protosrv"))
         elif proc == "Access/HTTPD":
             self.cbox_srctype.clear()
-            self.cbox_srctype.addItems(("tas:gateway:apache:access", ""))
+            # self.cbox_srctype.addItems(("tas:gateway:apache:access", ""))
+            self.cbox_srctype.addItem("tas:gateway:apache:access")
         elif proc == "Remote Agent Server":
             self.cbox_srctype.clear()
             self.cbox_srctype.addItems(("tas:remoteagentserver:log", "tas:remoteagentserver:access"))
         elif proc == "Site SAML":
             self.cbox_srctype.clear()
-            self.cbox_srctype.addItems(("lambda:sso-sitesaml-aws-dev_cloudwatch_to_splunk", ""))
-        elif proc == "Access/HTTPD":
-            self.cbox_srctype.clear()
-            self.cbox_srctype.addItems(("tas:gateway:apache:access", ""))
+            self.cbox_srctype.addItem("lambda:sso-sitesaml-aws-dev_cloudwatch_to_splunk")
         elif proc == "Tableau Protocol Server":
             self.cbox_srctype.clear()
             self.cbox_srctype.addItems(("tas:backgrounder:protosrv", "tas:vizqlserver:protosrv","tas:vizportal:protosrv","tas:dataserver:protosrv"))
-        elif proc == "Access/HTTPD":
-            self.cbox_srctype.clear()
-            self.cbox_srctype.addItems(("tas:gateway:apache:access", ""))
         elif proc == "VizPortal":
             self.cbox_srctype.clear()
             self.cbox_srctype.addItems(("tas:vizportal:log", "tas:vizportal:cpp","tas:vizportal:protosrv"))

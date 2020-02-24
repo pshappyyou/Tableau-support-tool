@@ -12,6 +12,7 @@ class Dashboard(QWidget):
     site_pick =     'https://alpo/#/views/SiteLookup/SitePicker'
     site_pick_emb = 'https://alpo/views/SiteLookup/SitePicker?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
     matrix =        'https://alpo/#/views/APACWeightedAdjustedMetrics/MetricHeatmap'
+    matrix =        'https://alpo/#/views/TechSupportProductivityDashboardG3/APACKPIG3'
     onlyme_emb =    'https://alpo/views/APACWeightedAdjustedMetrics/OnlyMe?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
     case_q =        'https://alpo/#/views/Tier1TechDash/Tier1TechQueue'
     case_q_emb =    'https://alpo/views/SupportCaseQueue/Tier1TechQueue?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
@@ -44,6 +45,8 @@ class Dashboard(QWidget):
     logshark =      'https://logshark.tsi.lan/'
     esxi =          'https://10.70.128.18'
     plus7 =         'https://alpo/#/views/APAC-AgedCases/IndividualsAlerts'
+    crashshark =    'https://crashshark.tsi.lan/'
+    subcat =        'https://alpo/#/views/subcategoryreporting/TechnicianSubcategoryDash'
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
@@ -64,7 +67,6 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "APAC Q", self.apac_q)
         # self.add_web_tab(self.tabs, "Old Cases", self.age_xlsx)
         self.add_web_tab(self.tabs, "Case Age", self.case_age)
-        self.add_web_tab(self.tabs, "Case Q", self.case_q)
         self.add_web_tab(self.tabs, "Milestone", self.steve)
         # self.add_web_tab(self.tabs, "Cat", self.cat)
         # Individual KPI Management
@@ -72,6 +74,7 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "Perform", self.perform)
         self.add_web_tab(self.tabs, "My Survey", self.my_survey)
         self.add_web_tab(self.tabs, "Call Att", self.call)
+        self.add_web_tab(self.tabs, "Sub-Category", self.subcat)
         self.add_web_tab(self.tabs, "SOP", self.sop)
         self.add_web_tab(self.tabs, "Plus7", self.plus7)
         # Utilities
@@ -79,10 +82,11 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "Database List", self.db)
         self.add_web_tab(self.tabs, "FNO Info", self.max_act)
         self.add_web_tab(self.tabs, "FNO Browser", self.FNO)
-        self.add_web_tab(self.tabs, "Sydney Lab", self.xen_lab)
+        # self.add_web_tab(self.tabs, "Sydney Lab", self.xen_lab)
         self.add_web_tab(self.tabs, "Dingo", self.dingo)
         self.add_web_tab(self.tabs, "Log Shark", self.logshark)
-        self.add_web_tab(self.tabs, "Esxi", self.esxi)
+        self.add_web_tab(self.tabs, "Crash Shark", self.crashshark)
+        # self.add_web_tab(self.tabs, "Esxi", self.esxi)
         # Admin
         self.add_web_tab(self.tabs, "Out Q", self.out_of_q)
         self.add_web_tab(self.tabs, "PTO Lookup", self.pto_lookup)
@@ -106,6 +110,12 @@ class Dashboard(QWidget):
         web_view.load(QUrl(url))
         # web_view.page().profile().setPersistentCookiesPolicy(QWebEngineProfile.NoPersistentCookies)
         new_tab.layout.addWidget(web_view)
+
+        # lb_link = QLabel()
+        # lb_link.setText("<a href='"+url+"'>Open in Browser</a>")
+        # lb_link.setOpenExternalLinks(True)
+        # new_tab.layout.addWidget(lb_link)
+
         new_tab.setLayout(new_tab.layout)
 
     def remove_web_tab(self, index):

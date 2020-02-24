@@ -30,6 +30,7 @@ class BookMark(QWidget):
     log_shark = 'https://logshark.tsi.lan'
     splunk = 'https://splunk.tsi.lan'
     onlinesupport = 'https://manage.online.tableau.com/support'
+    schedules   = "https://mytableau.tableaucorp.com/display/devprodops/Tableau+Release+Schedules+and+Calendar+Tables"
 
     def __init__(self, parent):
         super(BookMark, self).__init__(parent)
@@ -54,6 +55,7 @@ class BookMark(QWidget):
         self.btn_aws.setMinimumSize(QSize(50, 50))
         # self.btn_aws.resize(50, 50)
         self.btn_onlinesupport = QPushButton("Tableau Online Support Access")
+        self.btn_picker = QPushButton("Site Picker")
 
         # Adding Widgets to Layout
         self.glay.addWidget(self.btn_okta, 0,0)
@@ -63,6 +65,7 @@ class BookMark(QWidget):
         self.glay.addWidget(self.btn_chameleon, 2, 0)
         self.glay.addWidget(self.btn_aws, 2, 1)
         self.glay.addWidget(self.btn_spk, 3, 1)
+        self.glay.addWidget(self.btn_picker, 3, 0)
         self.gbox_okta.setLayout(self.glay)
 
         # Second GroupBox
@@ -88,23 +91,31 @@ class BookMark(QWidget):
         self.btn_ot = QPushButton("OT - Smartsheet")
         self.glay_admin.addWidget(self.btn_ot, 0,0)
 
+        self.gbox_wiki = QGroupBox("Wiki")
+        self.glay_wiki = QGridLayout()
+        self.gbox_wiki.setLayout(self.glay_wiki)
+        self.btn_schedules = QPushButton("Tableau Release Schedules and Calendar Tables")
+        self.glay_wiki.addWidget(self.btn_schedules, 0, 0)
+
         # Set Layout to the main widget
         self.vlay.addWidget(self.gbox_okta, 0,0)
         self.vlay.addWidget(self.gbox_server, 0,1)
         self.vlay.addWidget(self.gbox_admin, 1, 0)
+        self.vlay.addWidget(self.gbox_wiki, 1, 1)
         self.setLayout(self.vlay)
 
     def setup_events(self):
         self.btn_okta.clicked.connect(lambda : self.open_link(self.okta))
         # self.btn_maxact.clicked.connect(lambda: self.open_link(self.max_act))
-        # self.btn_sitepik.clicked.connect(lambda: self.open_link(self.site_pick))
         self.btn_chameleon.clicked.connect(lambda: self.open_link(self.chameleon))
         self.btn_spk.clicked.connect(lambda: self.open_link(self.SPLUNK))
+        self.btn_picker.clicked.connect(lambda: self.open_link(self.site_pick))
         self.btn_aws.clicked.connect(lambda: self.open_link(self.AWS_SSO))
         self.btn_apac_go.clicked.connect(lambda :self.open_server_link(self.cbox_apac.currentText()))
         self.btn_syd_go.clicked.connect(lambda : self.open_server_link(self.cbox_syd.currentText()))
         self.btn_ot.clicked.connect(lambda : self.open_link(self.OT))
         self.btn_onlinesupport.clicked.connect(lambda: self.open_link(self.onlinesupport))
+        self.btn_schedules.clicked.connect(lambda: self.open_link(self.schedules))
 
     def open_link(self, link):
         print(link)
