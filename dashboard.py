@@ -47,6 +47,7 @@ class Dashboard(QWidget):
     plus7 =         'https://alpo/#/views/APAC-AgedCases/IndividualsAlerts'
     crashshark =    'https://crashshark.tsi.lan/'
     subcat =        'https://alpo/#/views/subcategoryreporting/TechnicianSubcategoryDash'
+    ttr =           'https://alpo/#/views/APAC-AgedCases/IndividualsAlerts'
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
@@ -68,6 +69,7 @@ class Dashboard(QWidget):
         # self.add_web_tab(self.tabs, "Old Cases", self.age_xlsx)
         self.add_web_tab(self.tabs, "Case Age", self.case_age)
         self.add_web_tab(self.tabs, "Milestone", self.steve)
+        self.add_web_tab(self.tabs, "TTR", self.ttr)
         # self.add_web_tab(self.tabs, "Cat", self.cat)
         # Individual KPI Management
         self.add_web_tab(self.tabs, "KPI", self.matrix)
