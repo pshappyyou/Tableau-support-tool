@@ -75,10 +75,9 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "KPI", self.matrix)
         self.add_web_tab(self.tabs, "Perform", self.perform)
         self.add_web_tab(self.tabs, "My Survey", self.my_survey)
-        self.add_web_tab(self.tabs, "Call Att", self.call)
+        # self.add_web_tab(self.tabs, "Call Att", self.call)
         self.add_web_tab(self.tabs, "Sub-Category", self.subcat)
         self.add_web_tab(self.tabs, "SOP", self.sop)
-        self.add_web_tab(self.tabs, "Plus7", self.plus7)
         # Utilities
         self.add_web_tab(self.tabs, "Site Picker", self.site_pick_emb)
         self.add_web_tab(self.tabs, "Database List", self.db)
