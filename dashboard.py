@@ -44,10 +44,10 @@ class Dashboard(QWidget):
     age_xlsx =      'https://tableau.sharepoint.com/:x:/r/sites/APACTechSupport/_layouts/15/Doc.aspx?sourcedoc=%7BDAAA6273-507E-45D8-883A-2D76CF464C0E%7D&file=Old-Cases-Master.xlsx&action=default&mobileredirect=true'
     logshark =      'https://logshark.tsi.lan/'
     esxi =          'https://10.70.128.18'
-    plus7 =         'https://alpo/#/views/APAC-AgedCases/IndividualsAlerts'
     crashshark =    'https://crashshark.tsi.lan/'
     subcat =        'https://alpo/#/views/subcategoryreporting/TechnicianSubcategoryDash'
     ttr =           'https://alpo/#/views/APAC-AgedCases/IndividualsAlerts'
+    realtime =      'https://tableau.sharepoint.com/sites/APACTechSupport/Shared%20Documents/APACTechSupRealTimeDashboard.xlsx?web=1'
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
@@ -66,12 +66,11 @@ class Dashboard(QWidget):
         # Create tabs
         # Que Management
         self.add_web_tab(self.tabs, "APAC Q", self.apac_q)
-        # self.add_web_tab(self.tabs, "Old Cases", self.age_xlsx)
+        self.add_web_tab(self.tabs, "RealTime", self.realtime)
         self.add_web_tab(self.tabs, "Case Age", self.case_age)
+        ## Self Queue & KPI Management
         self.add_web_tab(self.tabs, "Milestone", self.steve)
         self.add_web_tab(self.tabs, "TTR", self.ttr)
-        # self.add_web_tab(self.tabs, "Cat", self.cat)
-        # Individual KPI Management
         self.add_web_tab(self.tabs, "KPI", self.matrix)
         self.add_web_tab(self.tabs, "Perform", self.perform)
         self.add_web_tab(self.tabs, "My Survey", self.my_survey)
