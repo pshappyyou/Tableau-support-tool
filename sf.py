@@ -199,6 +199,7 @@ class MySalesForce(QWidget):
             self.clear_case_combobox()
             self.clear_case_table()
             self.parent.statusRight.setText("Logout")
+            self.parent.statusMiddle.setText("User Logged Out!")
             self.parent.statusRight.setStyleSheet("background: normal")
         except Exception as e:
             print(e)
