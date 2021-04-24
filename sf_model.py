@@ -70,7 +70,7 @@ class SalesForceModel:
         self.username = username
         self.password = password
         self.api_key = api_key
-        self.sf = Salesforce(username=username, password=password, security_token=api_key)
+        self.sf = Salesforce(username=username, password=password, security_token=api_key, version='50.0')
         self.user_id = self.get_user_id()
         # return self.sf
 
@@ -78,7 +78,7 @@ class SalesForceModel:
         username = self.get_sf_username()
         password = self.get_sf_password()
         api_key = self.get_sf_api_key()
-        self.sf = Salesforce(username=username, password=password, security_token=api_key)
+        self.sf = Salesforce(username=username, password=password, security_token=api_key, version='50.0')
         self.user_id = self.get_user_id()
 
     def logout(self):
