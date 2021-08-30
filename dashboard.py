@@ -6,8 +6,8 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile, QWebEngi
 
 class Dashboard(QWidget):
     perform =       'https://alpo/#/views/APACTechSupportIndividualPerformance/IndividualPerformance?:iid=1'
-    okta =          'https://tableau.okta.com/app/UserHome?fromLogin=true'
-    okta2 =         'https://tableau.okta.com/app/UserHome'
+    # okta =          'https://tableau.okta.com/app/UserHome?fromLogin=true'
+    # okta2 =         'https://tableau.okta.com/app/UserHome'
     max_act =       'https://alpo/#/views/FNOLicenseInformation_0/FNOLicenseInfo-DesktopMaxActivation?:iid=1'
     site_pick =     'https://alpo/#/views/SiteLookup/SitePicker'
     site_pick_emb = 'https://alpo/views/SiteLookup/SitePicker?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
@@ -43,7 +43,6 @@ class Dashboard(QWidget):
     case_age =      'https://alpo/#/views/APAC-CaseStatus/CaseAge'
     age_xlsx =      'https://tableau.sharepoint.com/:x:/r/sites/APACTechSupport/_layouts/15/Doc.aspx?sourcedoc=%7BDAAA6273-507E-45D8-883A-2D76CF464C0E%7D&file=Old-Cases-Master.xlsx&action=default&mobileredirect=true'
     logshark =      'https://logshark.tsi.lan/'
-    esxi =          'https://10.70.128.18'
     crashshark =    'https://crashshark.tsi.lan/'
     subcat =        'https://alpo/#/views/subcategoryreporting/TechnicianSubcategoryDash'
     ttr =           'https://alpo/#/views/APAC-AgedCases/IndividualsAlerts'
