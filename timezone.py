@@ -1,12 +1,14 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile
 
 import timezone_model as tz_model
 
 class TimeZone(QWidget):
     def __init__(self, parent):
         super(TimeZone, self).__init__(parent)
+        QWebEngineProfile.defaultProfile().setPersistentCookiesPolicy(QWebEngineProfile.ForcePersistentCookies)
         self.model = tz_model.TimeZoneModel()
         self.init_Ui()
         self.setup_events()
@@ -19,6 +21,13 @@ class TimeZone(QWidget):
         self.gbox_timezone_calc = QGroupBox("TimeZone Calc")
         self.hlay_timezone_calc = QHBoxLayout()
 
+        url = 'https://www.worldtimebuddy.com/'
+        self.web_view = QWebEngineView()
+        self.web_view.load(QUrl(url))
+        self.hlay_timezone_calc.addWidget(self.web_view)
+        self.gbox_timezone_calc.setLayout(self.hlay_timezone_calc)
+
+        '''
         self.gbox_timezone_calc_src = QGroupBox("Source")
         self.vlay_timezone_calc_src = QVBoxLayout()
         self.combo_timezone_calc_src = QComboBox()
@@ -42,6 +51,7 @@ class TimeZone(QWidget):
         self.hlay_timezone_calc.addWidget(self.gbox_timezone_calc_src)
         self.hlay_timezone_calc.addWidget(self.gbox_timezone_calc_dst)
         self.gbox_timezone_calc.setLayout(self.hlay_timezone_calc)
+        '''
 
         self.gbox_timezone_pick = QGroupBox("TimeZone Picker")
         self.vlay_timezone_pick = QVBoxLayout()
@@ -66,9 +76,9 @@ class TimeZone(QWidget):
 
     def setup_events(self):
         self.combo_timezone_pick.activated[str].connect(self.update_timezone_picker)
-        self.combo_timezone_calc_src.activated[str].connect(self.update_timezone_calc_src)
-        self.combo_timezone_calc_dst.activated[str].connect(self.update_timezone_calc_dst)
-        self.dtedit_timezone_calc_src.dateTimeChanged.connect(self.sync_timezone_calc_dst)
+        # self.combo_timezone_calc_src.activated[str].connect(self.update_timezone_calc_src)
+        # self.combo_timezone_calc_dst.activated[str].connect(self.update_timezone_calc_dst)
+        # self.dtedit_timezone_calc_src.dateTimeChanged.connect(self.sync_timezone_calc_dst)
         self.btn_timezone_pick_add.clicked.connect(self.add_timezone)
         self.btn_timezone_pick_pop.clicked.connect(self.pop_timezone)
 
@@ -83,9 +93,9 @@ class TimeZone(QWidget):
         self.add_time_zone_gbox(self.vlay_timezone, "Asia/Kolkata", "Asia/Kolkata")
 
         self.load_common_timezone_list(self.combo_timezone_pick)
-        self.load_common_timezone_list(self.combo_timezone_calc_src)
-        self.load_common_timezone_list(self.combo_timezone_calc_dst)
-        self.dtedit_timezone_calc_src.setDateTime(QDateTime.currentDateTime())
+        # self.load_common_timezone_list(self.combo_timezone_calc_src)
+        # self.load_common_timezone_list(self.combo_timezone_calc_dst)
+        # self.dtedit_timezone_calc_src.setDateTime(QDateTime.currentDateTime())
 
     def update_timezone_calc_src(self, timezone):
         p_datetime = self.model.get_zone_time(timezone) # "%Y-%m-%d %I:%M:%S %p"
