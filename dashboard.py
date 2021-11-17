@@ -41,7 +41,7 @@ class Dashboard(QWidget):
     # sop =           'https://alpo/#/views/SOPUsage/UsagebyTechnician'
     out_of_q =      'https://alpo/#/views/APACTechSupportAvailabilityCalendar/APACTSOutofQueueV2'
     pto_lookup =    'https://alpo/#/views/APACTechSupportAvailabilityCalendar/APACTSPTOCalendarLookUp'
-    dingo =         'https://dingo.tsi.lan/'
+    # dingo =         'https://dingo.tsi.lan/'
     case_age =      'https://alpo/#/views/APAC-CaseStatus/CaseAge'
     age_xlsx =      'https://tableau.sharepoint.com/:x:/r/sites/APACTechSupport/_layouts/15/Doc.aspx?sourcedoc=%7BDAAA6273-507E-45D8-883A-2D76CF464C0E%7D&file=Old-Cases-Master.xlsx&action=default&mobileredirect=true'
     logshark =      'https://logshark.tsi.lan/'
@@ -84,7 +84,7 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "FNO Info", self.max_act)
         self.add_web_tab(self.tabs, "FNO Browser", self.FNO)
         # self.add_web_tab(self.tabs, "Sydney Lab", self.xen_lab)
-        self.add_web_tab(self.tabs, "Dingo", self.dingo)
+        # self.add_web_tab(self.tabs, "Dingo", self.dingo)
         self.add_web_tab(self.tabs, "Log Shark", self.logshark)
         self.add_web_tab(self.tabs, "Crash Shark", self.crashshark)
         # self.add_web_tab(self.tabs, "Esxi", self.esxi)
