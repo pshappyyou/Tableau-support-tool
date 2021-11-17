@@ -14,6 +14,7 @@ class Dashboard(QWidget):
     # matrix =        'https://alpo/#/views/APACWeightedAdjustedMetrics/MetricHeatmap'
     # matrix =        'https://alpo/#/views/TechSupportProductivityDashboardG3/APACKPIG3'
     matrix = 'https://alpo.tsi.lan/#/views/SupportAPJProductivityG4/APJTSProductivity'
+    matrix = 'https://alpo.tsi.lan/#/views/SupportAPJProductivityG4-New/OnlyMe'
     # onlyme_emb =    'https://alpo/views/APACWeightedAdjustedMetrics/OnlyMe?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
     # case_q =        'https://alpo/#/views/Tier1TechDash/Tier1TechQueue'
     # case_q_emb =    'https://alpo/views/SupportCaseQueue/Tier1TechQueue?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
