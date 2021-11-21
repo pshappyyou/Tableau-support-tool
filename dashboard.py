@@ -9,8 +9,8 @@ class Dashboard(QWidget):
     # okta =          'https://tableau.okta.com/app/UserHome?fromLogin=true'
     # okta2 =         'https://tableau.okta.com/app/UserHome'
     max_act =       'https://alpo/#/views/FNOLicenseInformation_0/FNOLicenseInfo-DesktopMaxActivation?:iid=1'
-    site_pick =     'https://alpo/#/views/SiteLookup/SitePicker'
-    site_pick_emb = 'https://alpo/views/SiteLookup/SitePicker?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
+    # site_pick =     'https://alpo/#/views/SiteLookup/SitePicker'
+    # site_pick_emb = 'https://alpo/views/SiteLookup/SitePicker?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link'
     # matrix =        'https://alpo/#/views/APACWeightedAdjustedMetrics/MetricHeatmap'
     # matrix =        'https://alpo/#/views/TechSupportProductivityDashboardG3/APACKPIG3'
     matrix = 'https://alpo.tsi.lan/#/views/SupportAPJProductivityG4/APJTSProductivity'
@@ -79,7 +79,7 @@ class Dashboard(QWidget):
         self.add_web_tab(self.tabs, "Sub-Category", self.subcat)
         # self.add_web_tab(self.tabs, "SOP", self.sop)
         # Utilities
-        self.add_web_tab(self.tabs, "Site Picker", self.site_pick_emb)
+        # self.add_web_tab(self.tabs, "Site Picker", self.site_pick_emb)
         self.add_web_tab(self.tabs, "Database List", self.db)
         self.add_web_tab(self.tabs, "FNO Info", self.max_act)
         self.add_web_tab(self.tabs, "FNO Browser", self.FNO)
