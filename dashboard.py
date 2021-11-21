@@ -33,7 +33,7 @@ class Dashboard(QWidget):
     # aws =           "https://tableau.okta.com/app/amazon_aws/"
     # coveo =         "https://tableau--c.na61.visual.force.com/apex/SupportFullSearch#t=Core&sort=relevancy"
     FNO =           'https://tableau--c.na61.visual.force.com/apex/FNOBrowser'
-    my_survey =     'https://alpo/#/views/MySupportCaseClosedSurveyssatis/MySurveys?:iid=1'
+    # my_survey =     'https://alpo/#/views/MySupportCaseClosedSurveyssatis/MySurveys?:iid=1'
     # test =          '<h1>Hello World</h1>'
     # apac_q =        'https://alpo/#/views/APACQueueStatus/APACQueueStatus'
     # apac_q =        'https://alpo/views/APACQueueStatus/APACQueueStatus?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link'
@@ -74,7 +74,7 @@ class Dashboard(QWidget):
         # self.add_web_tab(self.tabs, "TTR", self.ttr)
         self.add_web_tab(self.tabs, "KPI", self.matrix)
         self.add_web_tab(self.tabs, "Perform", self.perform)
-        self.add_web_tab(self.tabs, "My Survey", self.my_survey)
+        # self.add_web_tab(self.tabs, "My Survey", self.my_survey)
         self.add_web_tab(self.tabs, "Call Att", self.call)
         self.add_web_tab(self.tabs, "Sub-Category", self.subcat)
         # self.add_web_tab(self.tabs, "SOP", self.sop)
