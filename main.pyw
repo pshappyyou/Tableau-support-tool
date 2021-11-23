@@ -5,6 +5,7 @@ import json
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+from PyQt5.QtWebEngineWidgets import QWebEngineView
 
 import timezone as tz
 import sf
@@ -135,6 +136,15 @@ class MainTabWidget(QWidget):
         self.notepad = QPlainTextEdit()
         # self.notepad.setStyleSheet(StyleSheet)
         self.tabs.addTab(self.notepad, "Notepad")
+        # Slack Tab
+        self.slack = QWidget()
+        self.slack.layout = QVBoxLayout()
+        slack_web_view = QWebEngineView(self.slack)
+        slack_web_view.load(QUrl("https://tableau.slack.com/messages"))
+        self.slack.layout.addWidget(slack_web_view)
+        self.slack.setLayout(self.slack.layout)
+
+        self.tabs.addTab(self.slack, "Slack")
 
         # Add tabs to widget
         self.layout.addWidget(self.tabs)

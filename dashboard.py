@@ -3,7 +3,6 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile, QWebEnginePage
 
-
 class Dashboard(QWidget):
     perform =       'https://alpo/#/views/APACTechSupportIndividualPerformance/IndividualPerformance?:iid=1'
     # okta =          'https://tableau.okta.com/app/UserHome?fromLogin=true'
@@ -49,6 +48,7 @@ class Dashboard(QWidget):
     subcat =        'https://alpo/#/views/subcategoryreporting/TechnicianSubcategoryDash'
     ttr =           'https://alpo/#/views/APAC-AgedCases/IndividualsAlerts'
     realtime =      'https://tableau.sharepoint.com/sites/APACTechSupport/Shared%20Documents/APACTechSupRealTimeDashboard.xlsx?web=1'
+    # cockpit =       'http://ndc1tsvwsupdb01.tsi.lan:9001/Cockpit'
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
@@ -98,6 +98,7 @@ class Dashboard(QWidget):
         # self.add_web_tab(self.tabs, "OnlineHelp", self.ohelp)
         # self.add_web_tab(self.tabs, "Coveo", self.coveo)
         # self.add_web_tab(self.tabs, "Slack", self.slack)
+        # self.add_web_tab(self.tabs, "Cockpit", self.cockpit)
 
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
